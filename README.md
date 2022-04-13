@@ -49,3 +49,33 @@ and blank `.rubocop_todo.yml`
 rubocop -a
 ```
 
+## Gemfile for erb_lint
+
+```Gemfile
+  gem 'erb_lint'
+```
+
+`.erb-lint.yml`
+
+```yaml
+EnableDefaultLinters: true
+linters:
+  Rubocop:
+    enabled: true
+    rubocop_config:
+      inherit_from:
+        - .rubocop.yml
+      Style/FrozenStringLiteralComment:
+        Enabled: false
+      Layout/InitialIndentation:
+        Enabled: false
+      Layout/TrailingEmptyLines:
+        Enabled: false
+```
+
+## Apply autocorrect of erb_lint
+
+```shell
+erblint --lint-all -a
+```
+
